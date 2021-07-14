@@ -26,4 +26,10 @@ Instalacao de ambiente
 -- javac hello.java
 -- java hello.class
 
+-----------------------------------------
+
+-- Estudar API Stream;
+-- plugins: pmd e checkstyle - codestyles 
+-- pesquisar - sonar, find bugs...
+
 
