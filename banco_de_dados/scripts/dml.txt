@@ -1,0 +1,48 @@
+DML ou CRUD - CREATE, READ, UPDATE, DELETE
+
+------------------------------------------------------------------------------
+
+SELECT numero, nome FROM banco;
+SELECT numero, nome FROM banco WHERE ativo IS TRUE
+SELECT nome FROM cliente WHERE email LIKE '%gmail.com'
+
+--Nao recomendado
+SELECT numero FROM agencia
+WHERE banco_numero IN (SELECT numero FROM banco WHERE nome ILIKE '%Bradesco%');
+
+-------------------------------------------------------------------------------
+
+SELECT 
+WHERE = / > / >= / < / <= / <> / != / LIKE / ILIKE / IN
+AND
+OR
+
+--------------------------------------------------------------------------------
+
+--Nao e uma boa pratica, deve-se usar LEFT JOIN.
+
+SELECT (campos)
+FROM tabela
+WHERE EXISTS (
+	SELECT(campo)
+	FROM tabela2
+	WHERE campo1 = valor1
+	[AND/OR campoN = valorN]
+)
+
+---------------------------------------------------------------------------------
+
+INSERT 'INTO banco' (campo) VALUES ('valor')
+INSERT 'INTO banco' (campo) SELECT ('valor')
+
+---------------------------------------------------------------------------------
+
+UPDATE (tabela) SET campo = novo_valor WHERE (condicao)
+DELETE (tabela) SET campo = novo_valor WHERE (condicao)
+
+----------------------------------------------------------------------------------
+
+TRUNCATE - ESVAZIA A TABELA
+
+
+

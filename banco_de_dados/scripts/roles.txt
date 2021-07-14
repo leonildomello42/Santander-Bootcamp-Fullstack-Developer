@@ -1,0 +1,62 @@
+CREATE ROLE administradores
+	CREATEDB
+	CREATEROLE
+	INHERIT
+	NOLOGIN
+	REPLICATION
+	BYPASSRLS
+	CONNECTION LIMIT -1;
+	
+CREATE ROLE professores
+	NOCREATEDB
+	NOCREATEROLE
+	INHERIT
+	NOLOGIN
+	NOBYPASSRLS
+	CONNECTION LIMIT 10;
+	
+CREATE ROLE alunos
+	NOCREATEDB
+	NOCREATEROLE
+	INHERIT
+	NOLOGIN
+	NOBYPASSRLS
+	CONNECTION LIMIT 90;
+	
+-------------------------------------------------
+
+CREATE ROLE professores
+	NOCREATEDB
+	NOCREATEROLE
+	INHERIT
+	NOLOGIN
+	NOBYPASSRLS
+	CONNECTION LIMIT -1;
+
+CREATE ROLE daniel LOGIN CONNECTION LIMIT 1 PASSWORD '123' IN ROLE professores;
+	- A role daniel passa a assumir as permissoes da role professores
+
+CREATE ROLE daniel LOGIN CONNECTION LIMIT 1 PASSWORD '123' ROLE professores;
+	- A role professores passa a assumir as permissoes da role daniel
+
+CREATE ROLE daniel LOGIN CONNECTION LIMIT 1 PASSWORD '123';
+GRANT professores TO daniel;
+
+REVOKE professores FROM daniel;
+	- daniel nao tem mais as permissoes de professores
+
+----------------------------------------------------
+
+-Alterando ROLE
+
+ALTER ROLE ...;
+
+- Excluindo ROLE
+
+DROP ROLE ...;
+
+	
+
+	
+	
+	

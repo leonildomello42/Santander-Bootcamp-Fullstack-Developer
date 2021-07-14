@@ -1,0 +1,121 @@
+CREATE ROLE professores NOCREATEDB NOCREATEROLE INHERIT NOLOGIN NOBYPASSRLS CONNECTION LIMIT 10;
+
+- \du ou SELECT * FROM pg_roles; lista as roles no terminal
+
+ALTER ROLE professores PASSWORD '123';
+
+psql -U professores auladb - psql: FATAL:  role "professores" is not permitted to log in
+
+CREATE ROLE daniel LOGIN PASSWORD '123';
+
+DROP ROLE daniel;
+
+CREATE ROLE daniel LOGIN PASSWORD '123' IN ROLE professores;
+
+CREATE ROLE daniel LOGIN PASSWORD '123' ROLE professores;
+
+------------------------------------------------
+
+-acessos:
+
+GRANT {{CREATE | CONNECT | TEMPORARY | TEMP} | ALL[PRIVILEGES]}
+ON DATABASE 'name'
+TO role
+
+GRANT {{CREATE | USAGE} | ALL[PRIVILEGES]}
+ON SCHEMA 'name'
+TO role
+
+GRANT {{CREATE | CONNECT | TEMPORARY | TEMP} | ALL[PRIVILEGES]}
+ON {TABLE 'name'}
+TO role
+
+-------------------------------------------------
+
+REVOKE [GRANT OPTION FOR]
+{{CREATE | CONNECT | TEMPORARY | TEMP} | ALL[PRIVILEGES]}
+ON DATABASE 'name'
+FROM role;
+
+REVOKE [GRANT OPTION FOR]
+{{CREATE | CONNECT | TEMPORARY | TEMP} | ALL[PRIVILEGES]}
+ON SCHEMA 'name'
+FROM role;
+
+REVOKE ALL ON ALL TABLES IN SCHEMA [schema] FROM [role];
+REVOKE ALL ON SCHEMA [schema] FROM [role];
+REVOKE ALL ON DATABASE[database] FROM [role];
+
+---------------------------------------------------
+
+CREATE TABLE teste (nome VARCHAR);
+GRANT ALL ON TABLE teste TO professores;
+
+CREATE ROLE daniel LOGIN PASSWORD '123';
+-- psql -U daniel auladb
+SELECT nome FROM teste; - permissao negada
+
+CREATE ROLE daniel INHERIT LOGIN PASSWORD '123' IN ROLE professores;
+-- psql -U daniel auladb
+SELECT nome FROM teste; - permissao
+
+REVOKE professores FROM daniel;
+
+---------------------------------------------------
+
+CREATE DATABASE nome;
+
+ALTER DATABASE nome RENAME TO nove_nome
+
+DROP DATABASE [nome]
+
+---------------------------------------------------
+
+CREATE SCHEMA nome;
+
+ALTER SCHEMA nome RENAME TO novo_nome;
+
+DROP SCHEMA [nome];
+
+CREATE SCHEMA IF NOT EXISTS nome [AUTHORIZATION role]
+DROP SCHEMA IF EXISTS [nome];
+
+----------------------------------------------------
+
+DML:
+
+INSERT UPDATE DELETE SELECT
+
+DDL:
+
+CREATE ALTER DROP
+
+-----------------------------------------------------
+
+CREATE DATABASE auladb;
+
+CREATE ROLE professores NOCREATEDB NOCREATEROLE INHERIT NOLOGIN NOBYPASSRLS CONNECTION LIMIT 10;
+ALTER ROLE professores PASSWORD '123';
+
+--CREATE ROLE daniel LOGIN PASSWORD '123';
+
+--DROP ROLE daniel;
+
+--CREATE ROLE daniel LOGIN PASSWORD '123' IN ROLE professores;
+
+--CREATE ROLE daniel LOGIN PASSWORD '123' ROLE professores;
+
+CREATE TABLE teste (nome VARCHAR);
+GRANT ALL ON TABLE teste TO professores;
+
+CREATE ROLE daniel LOGIN PASSWORD '123';
+-- psql -U daniel auladb
+SELECT nome FROM teste; - permissao negada
+
+CREATE ROLE daniel INHERIT LOGIN PASSWORD '123' IN ROLE professores;
+-- psql -U daniel auladb
+SELECT nome FROM teste; - permissao
+
+
+
+

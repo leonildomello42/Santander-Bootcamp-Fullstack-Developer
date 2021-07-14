@@ -1,0 +1,29 @@
+Instalacao de ambiente
+
+# Dependencias:
+
+ -- java 11:  java -version
+ -- Gradle: gradle -v
+ -- Maven: mvn -v
+ -- Intellij
+
+# wrapper das ferramentas de build
+
+-----------------------------------------
+
+# Executar projeto
+
+-- java -jar target/exemplo-projeto.jar 
+
+-----------------------------------------
+
+# Java
+
+-- Jakarta EE
+
+# Compilando:
+
+-- javac hello.java
+-- java hello.class
+
+
