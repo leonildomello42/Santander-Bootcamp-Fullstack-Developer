@@ -31,5 +31,14 @@ Instalacao de ambiente
 -- Estudar API Stream;
 -- plugins: pmd e checkstyle - codestyles 
 -- pesquisar - sonar, find bugs...
+-- S.O.L.I.D
+
+-- Conceitos da OO
+
+    --Encapsulamento
+    --Composicao
+    --Heranca
+    --Polimorfismo
+    
 
 
