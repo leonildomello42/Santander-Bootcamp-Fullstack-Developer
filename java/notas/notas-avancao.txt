@@ -1,0 +1,11 @@
+
+#Java Avancao:
+
+
+-- Paradigas de Lingragem
+
+-- Generics
+-- Collections
+-- Paradiga Funcional (paradigma imperativo)
+-- Lambda e API Lambda do Java
+-- site: Mediumn
