@@ -1,11 +1,18 @@
 
 #Java Avancao:
 
-
 -- Paradigas de Lingragem
 
+--Threads
 -- Generics
 -- Collections
 -- Paradiga Funcional (paradigma imperativo)
--- Lambda e API Lambda do Java
+-- Lambda e API Lambda do Java (Metodos de referencia)
 -- site: Mediumn
+-- Recursividade
+-- Tail Call
+-- Memorization
+-- Funcao Alta Ordem
+-- Interfaces Funcionais
+
+
