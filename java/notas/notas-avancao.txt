@@ -14,5 +14,10 @@
 -- Memorization
 -- Funcao Alta Ordem
 -- Interfaces Funcionais
+-- modularizacao (jigsaw)
+-- inferencia (var)
+-- padrao builder
+
+
 
 
